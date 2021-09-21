@@ -10,7 +10,7 @@ describe('app.js public routes', () => {
     });
     it('should return main.css file contents on GET /styles/main.css', async () => {
         const res = await request(app).get('/styles/main.css');
-        const css = await readFile('./public/css/main.css');
+        const css = await readFile('./public/css/main.css', 'utf-8');
         expect(res.text).toEqual(css);
     });
 });
