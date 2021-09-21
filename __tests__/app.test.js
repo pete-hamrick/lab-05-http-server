@@ -19,4 +19,10 @@ describe('app.js public routes', () => {
             '<html><body><h1>Not Found</h1></body></html>'
         );
     });
+    xit('should return 404 from get of folder /styles', async () => {
+        const res = await request(app).get('/styles');
+        expect(res.text).toEqual(
+            '<html><body><h1>Not Found</h1></body></html>'
+        );
+    });
 });
