@@ -5,4 +5,9 @@ describe('body parser', () => {
         const res = await bodyParser(req);
         expect(res).toEqual(null);
     });
+    it('throws if content-type is not application/json', async () => {
+        const req = { method: 'POST', contentType: 'text/plain' };
+        const res = await bodyParser(req);
+        expect(res).toEqual('Bad Request');
+    });
 });
