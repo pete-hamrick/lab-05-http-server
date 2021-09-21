@@ -15,6 +15,8 @@ describe('app.js public routes', () => {
     });
     it('should return 404 from GET /bad-file', async () => {
         const res = await request(app).get('/bad-file');
-        const badFile = await readFile('./public/bad-file');
+        expect(res.text).toEqual(
+            '<html><body><h1>Not Found</h1></body></html>'
+        );
     });
 });
