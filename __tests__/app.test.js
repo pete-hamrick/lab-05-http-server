@@ -13,4 +13,8 @@ describe('app.js public routes', () => {
         const css = await readFile('./public/css/main.css', 'utf-8');
         expect(res.text).toEqual(css);
     });
+    it('should return 404 from GET /bad-file', async () => {
+        const res = await request(app).get('/bad-file');
+        const badFile = await readFile('./public/bad-file');
+    });
 });
