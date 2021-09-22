@@ -2,7 +2,7 @@
 import { readFile } from 'fs/promises';
 import request from 'supertest';
 import app from '../lib/app.js';
-describe('app.js public routes', () => {
+describe.skip('app.js public routes', () => {
     it('should return index.html from GET /', async () => {
         const res = await request(app).get('/');
         const readHTML = await readFile('./public/index.html', 'utf-8');
